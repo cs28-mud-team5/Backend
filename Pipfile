@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+python-decouple = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 pusher = "*"
@@ -15,10 +16,8 @@ django-heroku = "*"
 django-rest-api = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
-whitenoise = "*"
-python-decouple = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3"
