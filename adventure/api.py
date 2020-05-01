@@ -6,10 +6,24 @@ from decouple import config
 from django.contrib.auth.models import User
 from .models import *
 from rest_framework.decorators import api_view
+from rest_framework import serializers, viewsets
 import json
 
 # instantiate pusher
 # pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
+
+class AllRoomsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('id', 'title', 'description', 'n_to', 's_to', 'e_to', 'w_to')
+
+
+class AllRoomsView(viewsets.ModelViewSet):
+    serializer_class = AllRoomsSerializer
+    queryset = Room.objects.all()
+
+
+
 
 @csrf_exempt
 @api_view(["GET"])
