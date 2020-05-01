@@ -15,7 +15,7 @@ import json
 
 @csrf_exempt
 @api_view(["GET"])
-def rooms():
+def rooms(request):
   full_room_list = list(Room.objects.values('id', 'title', 'description', 'n_to', 's_to', 'e_to', 'w_to', 'x', 'y'))
   return JsonResponse({'all_rooms':full_room_list})
 
