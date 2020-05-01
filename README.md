@@ -1,6 +1,3 @@
-
-CS28-MUD-TEAM5
-
 # CS Build Week 1
 
 For your first CS Build Week, you will be building an interactive ***Multi-User Dungeon (MUD)*** client and server in groups. To succeed with this project, you will be applying knowledge you've learned throughout the first part of CS to this project.
@@ -213,4 +210,3 @@ It's up to you what data the request will return but the API request should be s
 curl -X GET -H 'Authorization: Token cc504e88ef659843b858d61c101ca9d4f0edf979' http://lambda-mud-test.herokuapp.com/api/adv/rooms/
 ```
 
->>>>>>> features-deploy
