@@ -13,7 +13,11 @@ import json
 # pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
 
 
-
+@csrf_exempt
+@api_view(["GET"])
+def rooms():
+  full_room_list = list(Room.objects.values('id', 'title', 'description', 'n_to', 's_to', 'e_to', 'w_to', 'x', 'y'))
+  return JsonResponse({'all_rooms':full_room_list})
 
 
 @csrf_exempt
@@ -25,7 +29,7 @@ def initialize(request):
     uuid = player.uuid
     room = player.room()
     players = room.playerNames(player_id)
-    full_room_list = list(Room.objects.values('id', 'title', 'description', 'n_to', 's_to', 'e_to', 'w_to', 'x', 'y'))
+    # full_room_list = list(Room.objects.values('id', 'title', 'description', 'n_to', 's_to', 'e_to', 'w_to', 'x', 'y'))
     return JsonResponse({ 'uuid': uuid, 'name':player.user.username, 'room_id':room.id, 'title':room.title, 'description':room.description, 'players':players}, safe=True)
 # 'all_rooms':full_room_list
 
